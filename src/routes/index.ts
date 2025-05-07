@@ -1,13 +1,17 @@
-import express from 'express';
+import express, { RequestHandler } from 'express';
 import produtosRouter from './produtos';
 import voosRouter from './voos';
+import { interferir } from '../middlewares/interferir';
 
 const router = express.Router();
+
+router.use(interferir);
 
 router.use('/produtos', produtosRouter);
 router.use('/voos', voosRouter);
 
 router.get('/ping', (req, res) => {
+    console.log("EXECUTOU O PING");
     res.json({ pong: true });
 });
 
