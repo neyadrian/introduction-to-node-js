@@ -16,6 +16,10 @@ router.get('/ping', (req, res) => {
 });
 
 router.get('/', (req, res) => {
+    console.log('PARAMS', req.params);
+    console.log('QUERY', req.query);
+    console.log('BODY', req.body);
+
     let nome: string = 'Ney';
     let idade: number = 18;
 
